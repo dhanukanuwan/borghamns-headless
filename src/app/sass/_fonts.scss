@@ -1,0 +1,396 @@
+@font-face {
+    font-family: 'borghamns';
+    src: url('../fonts/borghamns.eot?71256673');
+    src: url('../fonts/borghamns.eot?71256673#iefix') format('embedded-opentype'),
+         url('../fonts/borghamns.woff2?71256673') format('woff2'),
+         url('../fonts/borghamns.woff?71256673') format('woff'),
+         url('../fonts/borghamns.ttf?71256673') format('truetype'),
+         url('../fonts/borghamns.svg?71256673#borghamns') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'borghamns';
+    src: url('../font/borghamns.svg?71256673#borghamns') format('svg');
+  }
+}
+*/
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: "borghamns";
+    font-style: normal;
+    font-weight: normal;
+  
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    /* opacity: .8; */
+  
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+  
+    /* fix buttons height, for twitter bootstrap */
+    line-height: 1em;
+  
+    /* Animation center compensation - margins should be symmetric */
+    /* remove if not needed */
+    margin-left: .2em;
+  
+    /* you can be more comfortable with increased icons size */
+    /* font-size: 120%; */
+  
+    /* Font smoothing. That was taken from TWBS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Uncomment for 3D effect */
+    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  }
+
+  .animate-spin {
+    -moz-animation: spin 2s infinite linear;
+    -o-animation: spin 2s infinite linear;
+    -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+    display: inline-block;
+  }
+  @-webkit-keyframes spin {
+    0% {
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      -moz-transform: rotate(359deg);
+      -o-transform: rotate(359deg);
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+  @keyframes spin {
+    0% {
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      -moz-transform: rotate(359deg);
+      -o-transform: rotate(359deg);
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+  
+  .icon-wood:before { content: '\e800'; } /* '' */
+  .icon-trowel:before { content: '\e801'; } /* '' */
+  .icon-tiles:before { content: '\e802'; } /* '' */
+  .icon-tiles-3:before { content: '\e803'; } /* '' */
+  .icon-tiles-2:before { content: '\e804'; } /* '' */
+  .icon-tiles-1:before { content: '\e805'; } /* '' */
+  .icon-tile:before { content: '\e806'; } /* '' */
+  .icon-tile-1:before { content: '\e807'; } /* '' */
+  .icon-suckers:before { content: '\e808'; } /* '' */
+  .icon-stones:before { content: '\e809'; } /* '' */
+  .icon-stone:before { content: '\e80a'; } /* '' */
+  .icon-panels:before { content: '\e80b'; } /* '' */
+  .icon-modern-art:before { content: '\e80c'; } /* '' */
+  .icon-marbles:before { content: '\e80d'; } /* '' */
+  .icon-living-room:before { content: '\e80e'; } /* '' */
+  .icon-hammer:before { content: '\e80f'; } /* '' */
+  .icon-floor:before { content: '\e810'; } /* '' */
+  .icon-dining-table:before { content: '\e811'; } /* '' */
+  .icon-construction:before { content: '\e812'; } /* '' */
+  .icon-chisel:before { content: '\e813'; } /* '' */
+  .icon-bridge-saw:before { content: '\e814'; } /* '' */
+  .icon-blueprint:before { content: '\e815'; } /* '' */
+  .icon-bathroom:before { content: '\e816'; } /* '' */
+  .icon-ion-alert-circled:before { content: '\f100'; } /* '' */
+  .icon-ion-alert:before { content: '\f101'; } /* '' */
+  .icon-ion-archive:before { content: '\f102'; } /* '' */
+  .icon-ion-arrow-down-a:before { content: '\f103'; } /* '' */
+  .icon-ion-arrow-down-b:before { content: '\f104'; } /* '' */
+  .icon-ion-arrow-down-c:before { content: '\f105'; } /* '' */
+  .icon-ion-arrow-left-a:before { content: '\f106'; } /* '' */
+  .icon-ion-arrow-left-b:before { content: '\f107'; } /* '' */
+  .icon-ion-arrow-left-c:before { content: '\f108'; } /* '' */
+  .icon-ion-arrow-right-a:before { content: '\f109'; } /* '' */
+  .icon-ion-arrow-right-b:before { content: '\f10a'; } /* '' */
+  .icon-ion-arrow-right-c:before { content: '\f10b'; } /* '' */
+  .icon-ion-arrow-up-a:before { content: '\f10c'; } /* '' */
+  .icon-ion-arrow-up-b:before { content: '\f10d'; } /* '' */
+  .icon-ion-arrow-up-c:before { content: '\f10e'; } /* '' */
+  .icon-ion-at:before { content: '\f10f'; } /* '' */
+  .icon-ion-bag:before { content: '\f110'; } /* '' */
+  .icon-tile-2:before { content: '\f111'; } /* '' */
+  .icon-ion-battery-empty:before { content: '\f112'; } /* '' */
+  .icon-ion-battery-full:before { content: '\f113'; } /* '' */
+  .icon-ion-battery-half:before { content: '\f114'; } /* '' */
+  .icon-ion-battery-low:before { content: '\f115'; } /* '' */
+  .icon-ion-bluetooth:before { content: '\f116'; } /* '' */
+  .icon-ion-calendar:before { content: '\f117'; } /* '' */
+  .icon-ion-camera:before { content: '\f118'; } /* '' */
+  .icon-ion-card:before { content: '\f119'; } /* '' */
+  .icon-ion-chatbox-working:before { content: '\f11a'; } /* '' */
+  .icon-ion-chatbox:before { content: '\f11b'; } /* '' */
+  .icon-ion-chatboxes:before { content: '\f11c'; } /* '' */
+  .icon-ion-chatbubble-working:before { content: '\f11d'; } /* '' */
+  .icon-ion-chatbubble:before { content: '\f11e'; } /* '' */
+  .icon-ion-chatbubbles:before { content: '\f11f'; } /* '' */
+  .icon-ion-checkmark-circled:before { content: '\f120'; } /* '' */
+  .icon-ion-checkmark-round:before { content: '\f121'; } /* '' */
+  .icon-ion-checkmark:before { content: '\f122'; } /* '' */
+  .icon-ion-chevron-down:before { content: '\f123'; } /* '' */
+  .icon-ion-chevron-left:before { content: '\f124'; } /* '' */
+  .icon-ion-chevron-right:before { content: '\f125'; } /* '' */
+  .icon-ion-chevron-up:before { content: '\f126'; } /* '' */
+  .icon-ion-clipboard:before { content: '\f127'; } /* '' */
+  .icon-ion-close-circled:before { content: '\f128'; } /* '' */
+  .icon-ion-close-round:before { content: '\f129'; } /* '' */
+  .icon-ion-close:before { content: '\f12a'; } /* '' */
+  .icon-ion-cloud:before { content: '\f12b'; } /* '' */
+  .icon-ion-compose:before { content: '\f12c'; } /* '' */
+  .icon-ion-disc:before { content: '\f12d'; } /* '' */
+  .icon-ion-document-text:before { content: '\f12e'; } /* '' */
+  .icon-ion-document:before { content: '\f12f'; } /* '' */
+  .icon-ion-drag:before { content: '\f130'; } /* '' */
+  .icon-ion-eject:before { content: '\f131'; } /* '' */
+  .icon-ion-email:before { content: '\f132'; } /* '' */
+  .icon-ion-eye:before { content: '\f133'; } /* '' */
+  .icon-ion-filing:before { content: '\f134'; } /* '' */
+  .icon-ion-film-marker:before { content: '\f135'; } /* '' */
+  .icon-ion-flash-off:before { content: '\f136'; } /* '' */
+  .icon-ion-flash:before { content: '\f137'; } /* '' */
+  .icon-ion-folder:before { content: '\f139'; } /* '' */
+  .icon-ion-forward:before { content: '\f13a'; } /* '' */
+  .icon-ion-gear-a:before { content: '\f13d'; } /* '' */
+  .icon-ion-gear-b:before { content: '\f13e'; } /* '' */
+  .icon-ion-grid:before { content: '\f13f'; } /* '' */
+  .icon-ion-headphone:before { content: '\f140'; } /* '' */
+  .icon-ion-help-circled:before { content: '\f142'; } /* '' */
+  .icon-ion-help:before { content: '\f143'; } /* '' */
+  .icon-ion-home:before { content: '\f144'; } /* '' */
+  .icon-ion-image:before { content: '\f147'; } /* '' */
+  .icon-ion-images:before { content: '\f148'; } /* '' */
+  .icon-ion-information-circled:before { content: '\f149'; } /* '' */
+  .icon-ion-information:before { content: '\f14a'; } /* '' */
+  .icon-ion-ionic:before { content: '\f14b'; } /* '' */
+  .icon-instagram:before { content: '\f16d'; } /* '' */
+  .icon-left:before { content: '\f177'; } /* '' */
+  .icon-right:before { content: '\f178'; } /* '' */
+  .icon-ion-social-apple:before { content: '\f227'; } /* '' */
+  .icon-ion-social-dribbble-outline:before { content: '\f22c'; } /* '' */
+  .icon-ion-social-facebook:before { content: '\f231'; } /* '' */
+  .icon-ion-social-linkedin:before { content: '\f239'; } /* '' */
+  .icon-ion-social-rss:before { content: '\f23d'; } /* '' */
+  .icon-ion-social-tumblr:before { content: '\f241'; } /* '' */
+  .icon-ion-social-twitter:before { content: '\f243'; } /* '' */
+  .icon-ion-social-vimeo:before { content: '\f245'; } /* '' */
+  .icon-ion-social-wordpress:before { content: '\f249'; } /* '' */
+  .icon-ion-social-youtube:before { content: '\f24d'; } /* '' */
+  .icon-ion-waterdrop:before { content: '\f25b'; } /* '' */
+  .icon-ion-wifi:before { content: '\f25c'; } /* '' */
+  .icon-ion-woman:before { content: '\f25d'; } /* '' */
+  .icon-ion-arrow-expand:before { content: '\f25e'; } /* '' */
+  .icon-ion-arrow-graph-down-left:before { content: '\f25f'; } /* '' */
+  .icon-ion-arrow-graph-down-right:before { content: '\f260'; } /* '' */
+  .icon-ion-arrow-graph-up-left:before { content: '\f261'; } /* '' */
+  .icon-ion-arrow-graph-up-right:before { content: '\f262'; } /* '' */
+  .icon-ion-arrow-move:before { content: '\f263'; } /* '' */
+  .icon-ion-arrow-resize:before { content: '\f264'; } /* '' */
+  .icon-ion-arrow-return-left:before { content: '\f265'; } /* '' */
+  .icon-ion-arrow-return-right:before { content: '\f266'; } /* '' */
+  .icon-ion-arrow-shrink:before { content: '\f267'; } /* '' */
+  .icon-ion-arrow-swap:before { content: '\f268'; } /* '' */
+  .icon-ion-beaker:before { content: '\f269'; } /* '' */
+  .icon-ion-beer:before { content: '\f26a'; } /* '' */
+  .icon-ion-bookmark:before { content: '\f26b'; } /* '' */
+  .icon-ion-briefcase:before { content: '\f26c'; } /* '' */
+  .icon-ion-calculator:before { content: '\f26d'; } /* '' */
+  .icon-ion-clock:before { content: '\f26e'; } /* '' */
+  .icon-ion-code-download:before { content: '\f26f'; } /* '' */
+  .icon-ion-code-working:before { content: '\f270'; } /* '' */
+  .icon-ion-code:before { content: '\f271'; } /* '' */
+  .icon-ion-coffee:before { content: '\f272'; } /* '' */
+  .icon-ion-compass:before { content: '\f273'; } /* '' */
+  .icon-ion-connection-bars:before { content: '\f274'; } /* '' */
+  .icon-ion-contrast:before { content: '\f275'; } /* '' */
+  .icon-ion-earth:before { content: '\f276'; } /* '' */
+  .icon-ion-flag:before { content: '\f279'; } /* '' */
+  .icon-ion-fork:before { content: '\f27a'; } /* '' */
+  .icon-ion-hammer:before { content: '\f27b'; } /* '' */
+  .icon-ion-help-buoy:before { content: '\f27c'; } /* '' */
+  .icon-ion-wineglass:before { content: '\f2b9'; } /* '' */
+  .icon-ion-wrench:before { content: '\f2ba'; } /* '' */
+  .icon-ion-bug:before { content: '\f2be'; } /* '' */
+  .icon-ion-fork-repo:before { content: '\f2c0'; } /* '' */
+  .icon-ion-android-add:before { content: '\f2c7'; } /* '' */
+  .icon-ion-android-arrow-back:before { content: '\f2ca'; } /* '' */
+  .icon-ion-android-calendar:before { content: '\f2d1'; } /* '' */
+  .icon-ion-android-call:before { content: '\f2d2'; } /* '' */
+  .icon-ion-android-camera:before { content: '\f2d3'; } /* '' */
+  .icon-ion-android-chat:before { content: '\f2d4'; } /* '' */
+  .icon-ion-android-close:before { content: '\f2d7'; } /* '' */
+  .icon-ion-android-contact:before { content: '\f2d8'; } /* '' */
+  .icon-ion-android-contacts:before { content: '\f2d9'; } /* '' */
+  .icon-ion-android-download:before { content: '\f2dd'; } /* '' */
+  .icon-ion-android-folder:before { content: '\f2e0'; } /* '' */
+  .icon-ion-android-hand:before { content: '\f2e3'; } /* '' */
+  .icon-ion-android-image:before { content: '\f2e4'; } /* '' */
+  .icon-ion-android-locate:before { content: '\f2e9'; } /* '' */
+  .icon-ion-android-mail:before { content: '\f2eb'; } /* '' */
+  .icon-ion-android-microphone:before { content: '\f2ec'; } /* '' */
+  .icon-ion-android-playstore:before { content: '\f2f0'; } /* '' */
+  .icon-ion-android-remove:before { content: '\f2f4'; } /* '' */
+  .icon-ion-android-search:before { content: '\f2f5'; } /* '' */
+  .icon-ion-android-send:before { content: '\f2f6'; } /* '' */
+  .icon-ion-android-settings:before { content: '\f2f7'; } /* '' */
+  .icon-ion-android-share:before { content: '\f2f8'; } /* '' */
+  .icon-ion-android-star:before { content: '\f2fc'; } /* '' */
+  .icon-ion-android-stopwatch:before { content: '\f2fd'; } /* '' */
+  .icon-ion-android-wifi:before { content: '\f305'; } /* '' */
+  .icon-ion-eye-disabled:before { content: '\f306'; } /* '' */
+  .icon-ion-xbox:before { content: '\f30c'; } /* '' */
+  .icon-ion-android-arrow-forward:before { content: '\f30f'; } /* '' */
+  .icon-ion-aperture:before { content: '\f313'; } /* '' */
+  .icon-ion-asterisk:before { content: '\f314'; } /* '' */
+  .icon-ion-bonfire:before { content: '\f315'; } /* '' */
+  .icon-ion-cash:before { content: '\f316'; } /* '' */
+  .icon-ion-closed-captioning:before { content: '\f317'; } /* '' */
+  .icon-ion-cube:before { content: '\f318'; } /* '' */
+  .icon-ion-fireball:before { content: '\f319'; } /* '' */
+  .icon-ion-flame:before { content: '\f31a'; } /* '' */
+  .icon-ion-funnel:before { content: '\f31b'; } /* '' */
+  .icon-ion-happy:before { content: '\f31c'; } /* '' */
+  .icon-ion-social-usd:before { content: '\f353'; } /* '' */
+  .icon-ion-wand:before { content: '\f358'; } /* '' */
+  .icon-ion-android-add-circle:before { content: '\f359'; } /* '' */
+  .icon-ion-android-alarm-clock:before { content: '\f35a'; } /* '' */
+  .icon-ion-android-apps:before { content: '\f35c'; } /* '' */
+  .icon-ion-android-arrow-down:before { content: '\f35d'; } /* '' */
+  .icon-ion-android-arrow-dropdown-circle:before { content: '\f35e'; } /* '' */
+  .icon-ion-android-arrow-dropdown:before { content: '\f35f'; } /* '' */
+  .icon-ion-android-arrow-dropleft-circle:before { content: '\f360'; } /* '' */
+  .icon-ion-android-arrow-dropleft:before { content: '\f361'; } /* '' */
+  .icon-ion-android-arrow-dropright-circle:before { content: '\f362'; } /* '' */
+  .icon-ion-android-arrow-dropright:before { content: '\f363'; } /* '' */
+  .icon-ion-android-arrow-dropup-circle:before { content: '\f364'; } /* '' */
+  .icon-ion-android-arrow-dropup:before { content: '\f365'; } /* '' */
+  .icon-ion-android-arrow-up:before { content: '\f366'; } /* '' */
+  .icon-ion-android-attach:before { content: '\f367'; } /* '' */
+  .icon-ion-android-bookmark:before { content: '\f36b'; } /* '' */
+  .icon-ion-android-bulb:before { content: '\f36c'; } /* '' */
+  .icon-ion-android-bus:before { content: '\f36d'; } /* '' */
+  .icon-ion-android-cancel:before { content: '\f36e'; } /* '' */
+  .icon-ion-android-cart:before { content: '\f370'; } /* '' */
+  .icon-ion-android-checkbox-blank:before { content: '\f371'; } /* '' */
+  .icon-ion-android-checkbox-outline-blank:before { content: '\f372'; } /* '' */
+  .icon-ion-android-checkbox-outline:before { content: '\f373'; } /* '' */
+  .icon-ion-android-checkbox:before { content: '\f374'; } /* '' */
+  .icon-ion-android-checkmark-circle:before { content: '\f375'; } /* '' */
+  .icon-ion-android-clipboard:before { content: '\f376'; } /* '' */
+  .icon-ion-android-cloud-circle:before { content: '\f377'; } /* '' */
+  .icon-ion-android-cloud-done:before { content: '\f378'; } /* '' */
+  .icon-ion-android-cloud-outline:before { content: '\f379'; } /* '' */
+  .icon-ion-android-cloud:before { content: '\f37a'; } /* '' */
+  .icon-ion-android-color-palette:before { content: '\f37b'; } /* '' */
+  .icon-ion-android-compass:before { content: '\f37c'; } /* '' */
+  .icon-ion-android-contract:before { content: '\f37d'; } /* '' */
+  .icon-ion-android-create:before { content: '\f37e'; } /* '' */
+  .icon-ion-android-delete:before { content: '\f37f'; } /* '' */
+  .icon-ion-android-desktop:before { content: '\f380'; } /* '' */
+  .icon-ion-android-document:before { content: '\f381'; } /* '' */
+  .icon-ion-android-done:before { content: '\f383'; } /* '' */
+  .icon-ion-android-drafts:before { content: '\f384'; } /* '' */
+  .icon-ion-android-exit:before { content: '\f385'; } /* '' */
+  .icon-ion-android-expand:before { content: '\f386'; } /* '' */
+  .icon-ion-android-favorite-outline:before { content: '\f387'; } /* '' */
+  .icon-ion-android-favorite:before { content: '\f388'; } /* '' */
+  .icon-ion-android-film:before { content: '\f389'; } /* '' */
+  .icon-ion-android-folder-open:before { content: '\f38a'; } /* '' */
+  .icon-ion-android-funnel:before { content: '\f38b'; } /* '' */
+  .icon-ion-android-globe:before { content: '\f38c'; } /* '' */
+  .icon-ion-android-hangout:before { content: '\f38d'; } /* '' */
+  .icon-ion-android-happy:before { content: '\f38e'; } /* '' */
+  .icon-ion-android-home:before { content: '\f38f'; } /* '' */
+  .icon-ion-android-laptop:before { content: '\f390'; } /* '' */
+  .icon-ion-android-list:before { content: '\f391'; } /* '' */
+  .icon-ion-android-lock:before { content: '\f392'; } /* '' */
+  .icon-ion-android-map:before { content: '\f393'; } /* '' */
+  .icon-ion-android-menu:before { content: '\f394'; } /* '' */
+  .icon-ion-android-microphone-off:before { content: '\f395'; } /* '' */
+  .icon-ion-android-more-horizontal:before { content: '\f396'; } /* '' */
+  .icon-ion-android-more-vertical:before { content: '\f397'; } /* '' */
+  .icon-ion-android-navigate:before { content: '\f398'; } /* '' */
+  .icon-ion-android-notifications-none:before { content: '\f399'; } /* '' */
+  .icon-ion-android-notifications-off:before { content: '\f39a'; } /* '' */
+  .icon-ion-android-notifications:before { content: '\f39b'; } /* '' */
+  .icon-ion-android-open:before { content: '\f39c'; } /* '' */
+  .icon-ion-android-options:before { content: '\f39d'; } /* '' */
+  .icon-ion-android-people:before { content: '\f39e'; } /* '' */
+  .icon-ion-android-person-add:before { content: '\f39f'; } /* '' */
+  .icon-ion-android-person:before { content: '\f3a0'; } /* '' */
+  .icon-ion-android-phone-landscape:before { content: '\f3a1'; } /* '' */
+  .icon-ion-android-phone-portrait:before { content: '\f3a2'; } /* '' */
+  .icon-ion-android-pin:before { content: '\f3a3'; } /* '' */
+  .icon-ion-android-plane:before { content: '\f3a4'; } /* '' */
+  .icon-ion-android-print:before { content: '\f3a5'; } /* '' */
+  .icon-ion-android-radio-button-off:before { content: '\f3a6'; } /* '' */
+  .icon-ion-android-radio-button-on:before { content: '\f3a7'; } /* '' */
+  .icon-ion-android-refresh:before { content: '\f3a8'; } /* '' */
+  .icon-ion-android-remove-circle:before { content: '\f3a9'; } /* '' */
+  .icon-ion-android-restaurant:before { content: '\f3aa'; } /* '' */
+  .icon-ion-android-sad:before { content: '\f3ab'; } /* '' */
+  .icon-ion-android-share-alt:before { content: '\f3ac'; } /* '' */
+  .icon-ion-android-star-half:before { content: '\f3ad'; } /* '' */
+  .icon-ion-android-star-outline:before { content: '\f3ae'; } /* '' */
+  .icon-ion-android-subway:before { content: '\f3af'; } /* '' */
+  .icon-ion-android-sunny:before { content: '\f3b0'; } /* '' */
+  .icon-ion-android-sync:before { content: '\f3b1'; } /* '' */
+  .icon-ion-android-textsms:before { content: '\f3b2'; } /* '' */
+  .icon-ion-android-time:before { content: '\f3b3'; } /* '' */
+  .icon-ion-android-train:before { content: '\f3b4'; } /* '' */
+  .icon-ion-android-unlock:before { content: '\f3b5'; } /* '' */
+  .icon-ion-android-upload:before { content: '\f3b6'; } /* '' */
+  .icon-ion-android-volume-down:before { content: '\f3b7'; } /* '' */
+  .icon-ion-android-volume-mute:before { content: '\f3b8'; } /* '' */
+  .icon-ion-android-volume-off:before { content: '\f3b9'; } /* '' */
+  .icon-ion-android-volume-up:before { content: '\f3ba'; } /* '' */
+  .icon-ion-android-walk:before { content: '\f3bb'; } /* '' */
+  .icon-ion-android-warning:before { content: '\f3bc'; } /* '' */
+  .icon-ion-android-watch:before { content: '\f3bd'; } /* '' */
+  .icon-ion-backspace-outline:before { content: '\f3be'; } /* '' */
+  .icon-ion-backspace:before { content: '\f3bf'; } /* '' */
+  .icon-ion-crop:before { content: '\f3c1'; } /* '' */
+  .icon-ion-easel:before { content: '\f3c2'; } /* '' */
+  .icon-ion-email-unread:before { content: '\f3c3'; } /* '' */
+  .icon-ion-erlenmeyer-flask-bubbles:before { content: '\f3c4'; } /* '' */
+  .icon-ion-erlenmeyer-flask:before { content: '\f3c5'; } /* '' */
+  .icon-ion-happy-outline:before { content: '\f3c6'; } /* '' */
+  .icon-ion-ios-arrow-back:before { content: '\f3cf'; } /* '' */
+  .icon-ion-ios-arrow-down:before { content: '\f3d0'; } /* '' */
+  .icon-ion-ios-arrow-forward:before { content: '\f3d1'; } /* '' */
+  .icon-ion-ios-arrow-left:before { content: '\f3d2'; } /* '' */
+  .icon-ion-ios-arrow-right:before { content: '\f3d3'; } /* '' */
+  .icon-ion-ios-arrow-thin-down:before { content: '\f3d4'; } /* '' */
+  .icon-ion-ios-arrow-thin-left:before { content: '\f3d5'; } /* '' */
+  .icon-ion-ios-arrow-thin-right:before { content: '\f3d6'; } /* '' */
+  .icon-ion-ios-arrow-thin-up:before { content: '\f3d7'; } /* '' */
+  .icon-ion-ios-arrow-up:before { content: '\f3d8'; } /* '' */
+  .icon-ion-ios-cart-outline:before { content: '\f3f7'; } /* '' */
+  .icon-ion-ios-cart:before { content: '\f3f8'; } /* '' */
+  .icon-ion-ios-chatbubble-outline:before { content: '\f3fb'; } /* '' */
+  .icon-ion-ios-chatbubble:before { content: '\f3fc'; } /* '' */
+  .icon-ion-ios-reload:before { content: '\f49d'; } /* '' */
+  .icon-ion-social-whatsapp:before { content: '\f4f0'; } /* '' */
+  

@@ -1,0 +1,332 @@
+
+.text-size-medium {
+    font-size: 0.875rem;
+}
+.text-size-small {
+    font-size: 0.75rem;
+}
+.hero-content {
+    background-color: transparentize($primary, 0.4);
+}
+.hero {
+    .hero-content {
+        background-color: transparentize($primary, 0.7);
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    a {
+        font-size: inherit;
+        color: $headings-color;
+        text-decoration: none;
+    }
+}
+
+@include media-breakpoint-up(md) {
+
+    .dropdown:hover>.dropdown-menu {
+        display: block;
+        top: 30px;
+    }
+    
+    .dropdown>.dropdown-toggle:active {
+        /*Without this, clicking will make it sticky*/
+        pointer-events: none;
+    }
+    
+}
+
+.line-right {
+    width: 30px;
+    height: 1px;
+    vertical-align: middle;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.round-img-wrap {
+    cursor: pointer;
+    .img-wrap-overlay {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    &:hover {
+        .img-wrap-overlay {
+            opacity: 1;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .hero-img-1 {
+        img {
+            max-height: 400px;
+            margin-left: -15%;
+        }
+    }
+    .hero-img-2 {
+        img {
+            max-height: 300px;
+            margin-left: -68%;
+        }
+    }
+    .hero-img-3 {
+        img {
+            max-height: 300px;
+            margin-left: -93%;
+        }
+    }
+    .not-found-h1 {
+        font-size: 10rem;
+    }
+    
+}
+
+@include media-breakpoint-down(md) {
+    .not-found-h1 {
+        font-size: 7rem;
+    }
+    .text-size-small-mobile {
+        font-size: 0.875rem;
+    }
+    .wp-block-borghamns-general-content-section {
+        .wp-block-group {
+            flex-wrap: wrap;
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .hero-img-1 {
+        img {
+            max-height: 540px;
+            margin-left: -15%;
+        }
+    }
+    .hero-img-2 {
+        img {
+            max-height: 400px;
+            margin-left: -68%;
+        }
+    }
+    .hero-img-3 {
+        img {
+            max-height: 400px;
+            margin-left: -97%;
+        }
+    }
+}
+
+@include media-breakpoint-down(xxl) {
+    .hero-images-wrap {
+        overflow-x: hidden;
+    }
+}
+
+.text-decoration-hover:hover {
+    text-decoration: underline !important;
+}
+
+.footer-top {
+    .social-icons {
+        a {
+            width: 35px;
+            height: 35px;
+            font-size: 1.25rem;
+        }
+    }
+}
+
+.accordion-button {
+    &[aria-expanded="true"] {
+        h3 {
+            color: $white;
+        }
+    }
+}
+
+.wp-block-borghamns-general-content-column {
+    .wp-block-image {
+
+        a {
+            @extend .p-2;
+            @extend .bg-white;
+            @extend .d-flex;
+
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top:0;
+                left: 0;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+                background-color: transparentize($primary, 0.5);
+
+            }
+
+            &:hover {
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.testimonial-item {
+    img {
+        height: auto !important;
+    }
+}
+
+.wp-block-quote {
+    
+    @extend .position-relative;
+    border-left: 6px solid $primary;
+
+    &::before {
+        @extend .position-absolute;
+        font-family: $headings-font-family;
+        font-size: 75px;
+        font-style: italic;
+        letter-spacing: -4px;
+        line-height: 0;
+        content: ',,';
+        top: 60px;
+        left: 20px;
+        transform: rotate(180deg);
+        font-weight: bold;
+    }
+}
+
+.page-template-default {
+    .components-tooltip {
+        background-color: var(--bs-primary-bg-subtle);
+        @extend .shadow-sm;
+        @extend .rounded-2;
+        padding: 15px 20px;
+        max-width: 300px;
+    
+        &::before {
+            position: absolute;
+            content: "";
+            border-color: transparent;
+            border-style: solid;
+            background-color: var(--bs-primary-bg-subtle);
+            left: -8px;
+            width: 20px;
+            height: 20px;
+            transform: rotate(45deg);
+        }
+    }
+}
+
+@include media-breakpoint-down(xl) {
+
+    .mobile-nav-trigger {
+        font-size: 2.5rem;
+    }
+
+    .mobile-nav-container {
+        width: 320px;
+        right: -400px;
+        transition: right .4s ease-in-out;
+
+        .nav-depth-0 {
+            .submenu-trigger {
+                top: 8px;
+                right: 7px;
+            }
+        }
+
+        .dropdown-menu {
+            background-color: $white;
+            border: 0;
+            border-radius: 0;
+            
+            li > a {
+                padding-left: 30px;
+                font-size: 1rem;
+                line-height: 1;
+                border-top: 1px solid var(--bs-border-color);
+            }
+        }
+    }
+
+}
+
+@media (max-width: 2060px) {
+    .toc-wrap {
+        max-width: 290px;
+        left: 30px;
+        top: 50px;
+    }
+}
+
+@media (min-width: 1300px) and (max-width: 1400px) {
+    .navbar-expand-xl .navbar-nav .nav-link {
+        font-size: 1rem;
+    }
+
+    .toc-active {
+        .wp-block-borghamns-general-content-section:not(.py-0) > .container,
+        .wp-block-borghamns-general-content-section:not(.py-0) .hero-content > .container {
+            padding-left: 280px;
+            max-width: 1200px;
+        }
+    }
+}
+
+@media (min-width: 1400px) and (max-width: 1500px) {
+    .toc-active {
+        .wp-block-borghamns-general-content-section:not(.py-0) > .container,
+        .wp-block-borghamns-general-content-section:not(.py-0) .hero-content > .container {
+            padding-left: 230px;
+            max-width: 1200px;
+        }
+    }
+}
+
+@media (min-width: 1500px) and (max-width: 1600px) {
+    .toc-active {
+        .wp-block-borghamns-general-content-section:not(.py-0) > .container,
+        .wp-block-borghamns-general-content-section:not(.py-0) .hero-content > .container {
+            padding-left: 280px;
+            max-width: 1400px;
+        }
+    }
+}
+
+@media (min-width: 1600px) and (max-width: 1900px) {
+    .toc-active {
+        .wp-block-borghamns-general-content-section:not(.py-0) > .container,
+        .wp-block-borghamns-general-content-section:not(.py-0) .hero-content > .container {
+            padding-left: 185px;
+        }
+    }
+}
+
+@media (min-width: 1900px) and (max-width: 2060px) {
+    .toc-active {
+        .wp-block-borghamns-general-content-section:not(.py-0) > .container,
+        .wp-block-borghamns-general-content-section:not(.py-0) .hero-content > .container {
+            padding-left: 150px;
+            max-width: 1400px;
+        }
+    }
+}
