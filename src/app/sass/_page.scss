@@ -12,6 +12,16 @@
     .hero-content {
         background-color: transparentize($primary, 0.7);
     }
+
+    .hero-bg {
+        min-height: 400px;
+        max-height: 400px;
+
+        @media (min-width: 1700px) {
+            min-height: 600px;
+            max-height: 600px;
+        }
+    }
 }
 
 h1,
