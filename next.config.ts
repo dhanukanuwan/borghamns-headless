@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     sassOptions: {
         silenceDeprecations: ['legacy-js-api'],
     },
-    images: { unoptimized: true }
+    images: { unoptimized: true },
 }
 
 module.exports = nextConfig

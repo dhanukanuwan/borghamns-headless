@@ -1,11 +1,24 @@
 import React from 'react';
-import Image from 'next/image'
+import SiteHeader from './ui/header/header';
+import { getDataFromAPI, parseHtml } from './lib/api-functions';
 
-export default function Page() {
+export default async function Page() {
+
+	const pageData = await getDataFromAPI(
+		'wp/v2/pages',
+		{ slug: 'hem' }
+	);
+
+	const pageContent = parseHtml(pageData[0].content.rendered);
+
   return (
-    <div>
-      <h1>Välkommen till oss på Borghamns Stenförädling AB</h1>
-      <p>Här erbjuder vi dig svensk natursten från våra egna brott till dig som värnar om tidlös elegans och hållbart material. Oavsett om du är ute efter ett golv, bänkskiva eller kanske restaurera en kyrka kan vi hjälpa dig. Vi kan göra dina tankar och idéer till verklighet med ett flera hundra miljoner år gammalt naturmaterial. Dessutom produceras allt 100% fossilfritt.</p>
-    </div>
+    <div className="min-vh-100 d-flex flex-column">
+		<SiteHeader pageSlug={[]} />
+		<main>
+			<div className="page-content-wrap">
+				{pageContent}
+			</div>
+		</main>
+	</div>
   );
 }

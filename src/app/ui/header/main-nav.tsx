@@ -1,14 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getMainNavMenu } from '@/app/lib/api-functions';
-
-interface MenuItem {
-    id: number;
-    menu_order: number;
-    sub_items: any;
-    title: string;
-    url: string;
-}
+import { MenuItem } from '@/app/lib/types';
 
 const MainNav = async () => {
 
