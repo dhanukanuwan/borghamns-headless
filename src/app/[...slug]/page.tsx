@@ -1,5 +1,6 @@
 import React from 'react';
-import { getDataFromAPI, parseHtml } from '../lib/api-functions';
+import { getDataFromAPI } from '../lib/api-functions';
+import { parseHtml } from '../lib/content-parser';
 import SiteHeader from '../ui/header/header';
 
 export async function generateStaticParams() {
@@ -18,6 +19,9 @@ export async function generateStaticParams() {
 			slug: slugArray
 		}
 	});
+
+	allPageUrls.push( { slug: ['offert']});
+	allPageUrls.push( { slug: ['stensorter', 'bestall-prover']});
 
 	return allPageUrls;
 }

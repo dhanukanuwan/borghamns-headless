@@ -1,6 +1,7 @@
 import React from 'react';
 import SiteHeader from './ui/header/header';
-import { getDataFromAPI, parseHtml } from './lib/api-functions';
+import { getDataFromAPI } from './lib/api-functions';
+import { parseHtml } from './lib/content-parser';
 
 export default async function Page() {
 

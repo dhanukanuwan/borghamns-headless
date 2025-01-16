@@ -13,6 +13,7 @@
     "html-react-parser": "^5.2.2",
     "next": "15.1.4",
     "react": "^19",
+    "react-bootstrap": "^2.10.7",
     "react-dom": "^19",
     "serve": "^14.2.1"
   },
