@@ -1,10 +1,12 @@
-import { Fragment } from "react";
 import parse, { HTMLReactParserOptions, Element, domToReact, DOMNode } from "html-react-parser";
 import Link from 'next/link';
 import Image from 'next/image';
 import Carousel from 'react-bootstrap/Carousel';
 import CarouselItem from 'react-bootstrap/CarouselItem';
-import CarouselCaption from 'react-bootstrap/CarouselCaption'
+import Accordion from 'react-bootstrap/Accordion';
+import AccordionItem from 'react-bootstrap/AccordionItem';
+import AccordionHeader from 'react-bootstrap/AccordionHeader';
+import AccordionBody from 'react-bootstrap/AccordionBody';
 
 // Parse and modify img elements from WordPress page content.
 const parseImage = (domNode: Element ) => {
@@ -58,89 +60,90 @@ const parseTable = (domNode: Element,  options: HTMLReactParserOptions) => {
     );
 }
 
-// Parse and add neccesory classes to tables from WordPress page content.
+// Make the carousel work.
 const parseCarousel = (domNode: Element,  options: HTMLReactParserOptions) => {
 
     const childElements = (domNode as Element).children;
+    let carouselElements = [];
 
-    console.log( childElements );
+    childElements.forEach( ( childElement: Element ) => {
+        if ( childElement.attribs.class && childElement.attribs.class.includes( 'carousel-inner' ) ) {
+            carouselElements = (childElement as Element).children;
+        }
+    } );
+
+    if ( carouselElements.length === 0 ) return;
 
     return (
-        <Carousel controls={false}>
+        <div className="bg-white">
+            <Carousel controls={false} >
 
-<CarouselItem className="testimonial-item carousel-item p-4 p-xl-5 bg-white">
-                <div className="row">
-                    <div className="col-auto col-lg">
-                        <p>Det är alltid extra trevligt att lägga/sätta kalksten när det kommer från Borghamns Stenförädling. Den stenen är snäppet bättre bearbetad än andra jag lagt.. Sen är det trevlig, hjälpsam och proffsig personal här !!</p>
-                        <div className="mt-3 d-flex align-items-center">
-                            <div className="flex-grow-1">
-                                <h3 className="liten mb-2 h4">Krister Larsson</h3>
-                            </div>
-                            <div>
-                                <span className="h2 liten text-primary">,,</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </CarouselItem>
+                { carouselElements.map( ( carouselElement: Element, index: number ) => {
 
-                <CarouselItem className="testimonial-item carousel-item p-4 p-xl-5 bg-white">
-                <div className="row">
-                    <div className="col-auto col-lg">
-                        <p>Fick fantastisk hjälp av Helena och Borghamns stenförädling att få fram matchande kulör på kompletteringsplattor till vårt snart 100 år gamla trapphusgolv. Snacka om bra service!</p>
-                        <div className="mt-3 d-flex align-items-center">
-                            <div className="flex-grow-1">
-                                <h3 className="liten mb-2 h4">Johan Wellton</h3>
-                            </div>
-                            <div>
-                                <span className="h2 liten text-primary">,,</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </CarouselItem>
+                    const carouselElementInner = (carouselElement as Element).children;
 
-                <CarouselItem className="testimonial-item carousel-item p-4 p-xl-5 bg-white">
-                <div className="row">
-                    <div className="col-auto col-lg">
-                        <p>Det är alltid extra trevligt att lägga/sätta kalksten när det kommer från Borghamns Stenförädling. Den stenen är snäppet bättre bearbetad än andra jag lagt.. Sen är det trevlig, hjälpsam och proffsig personal här !!</p>
-                        <div className="mt-3 d-flex align-items-center">
-                            <div className="flex-grow-1">
-                                <h3 className="liten mb-2 h4">Krister Larsson</h3>
-                            </div>
-                            <div>
-                                <span className="h2 liten text-primary">,,</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </CarouselItem>
+                    return(
+                        <CarouselItem className="testimonial-item carousel-item p-4 p-xl-5 bg-white" key={index}>
+                            {domToReact(carouselElementInner as DOMNode[], options)}
+                        </CarouselItem>
+                    );
+                })}
+            </Carousel>
+        </div>
+    )
 
-           
-        {/* <CarouselItem>
-          <img src="https://next-cms.local/wp-content/uploads/2024/04/0_0H9A5091-1024x648.jpg" />
-          <CarouselCaption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </CarouselCaption>
-        </CarouselItem>
-        <CarouselItem>
-        <img src="https://next-cms.local/wp-content/uploads/2024/04/0_0H9A5091-1024x648.jpg" />
-          <CarouselCaption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </CarouselCaption>
-        </CarouselItem>
-        <CarouselItem>
-        <img src="https://next-cms.local/wp-content/uploads/2024/04/0_0H9A5091-1024x648.jpg" />
-          <CarouselCaption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </CarouselCaption>
-        </CarouselItem> */}
-      </Carousel>
+}
+
+const parseAccordionButton = (domNode: Element,  options: HTMLReactParserOptions) => {
+
+    const childElements = (domNode as Element).children;
+
+    return(
+        <>
+            {domToReact(childElements as DOMNode[], options)}
+        </>
+    )
+
+}
+
+// Make the accodions work.
+const parseAccordion = (domNode: Element,  options: HTMLReactParserOptions) => {
+
+    const childElements = (domNode as Element).children;
+
+    return(
+        <Accordion defaultActiveKey="0">
+            { childElements.map( ( childElement: Element, index: number ) => {
+
+                const accordionChildElemets = (childElement as Element).children;
+
+                return(
+                    <AccordionItem eventKey={`${index}`} className={childElement.attribs.class} key={index}>
+                         { accordionChildElemets.map( ( accordionChildElemet: Element, index: number ) => {
+
+                            const innerElements = (accordionChildElemet as Element).children;
+                            const elementClass = accordionChildElemet.attribs.class;
+
+                            return (
+                                <div key={index}>
+                                    { elementClass === 'accordion-header' &&
+                                        <AccordionHeader as="div">
+                                            {domToReact(innerElements as DOMNode[], options)}
+                                        </AccordionHeader>
+                                    }
+
+                                    { elementClass.includes( 'accordion-collapse' ) &&
+                                        <AccordionBody>
+                                             {domToReact(innerElements as DOMNode[], options)}
+                                        </AccordionBody>
+                                    }
+                                </div>
+                            );
+                         })}
+                    </AccordionItem>
+                );
+            })}
+        </Accordion>
     )
 
 }
@@ -155,6 +158,8 @@ export function parseHtml(html: string) {
                 const isImage = domNode.name === "img";
                 const isTable = domNode.name === "table";
                 const isCarousel =  domNode.name === "div" && domNode.attribs.id === 'carousel_testimonial';
+                const isAccordionButton = domNode.name === "button" && domNode.attribs.class.includes( 'accordion-button' );
+                const isAccordion = domNode.name === "div" && domNode.attribs.class === 'accordion';
 
                 // Replace CMS url to frontend url.
                 if ( isInternalLink ) return parseLink( domNode, options );
@@ -163,8 +168,12 @@ export function parseHtml(html: string) {
                 if ( isImage ) return parseImage( domNode );
                 // Update tables.
                 if ( isTable ) return parseTable( domNode, options );
-
+                // Inject Bootstrap components for the carousel.
                 if ( isCarousel ) return parseCarousel( domNode, options );
+                // Remove accordion btn element to avoid nesting.
+                if ( isAccordionButton ) return parseAccordionButton( domNode, options );
+                // Inject Bootstrap components from the accordion.
+                if ( isAccordion ) return parseAccordion( domNode, options ); 
 
             }
         },
