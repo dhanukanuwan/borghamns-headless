@@ -3,12 +3,28 @@ import SmallNav from './small-nav';
 import MainNav from './main-nav';
 import { getDataFromAPI } from '@/app/lib/api-functions';
 
-const SiteHeader = async ( {pageSlug}) => {
+interface SiteHeaderProps {
+    pageSlug: string[],
+    searchQuery?: string | string[]
+};
+
+const SiteHeader = async ( {pageSlug, searchQuery}: SiteHeaderProps) => {
 
     const heroData = await getDataFromAPI(
         'nextheadless/v1/getpagehero',
         { slug: pageSlug.join('/') }
     );
+
+    let heroTitle: string = '';
+
+    if ( heroData.hero_data ) {
+        heroTitle = heroData.hero_data.page_title;
+    }
+
+    if ( searchQuery ) {
+        heroTitle = `${heroTitle} ${searchQuery}`;
+    }
+
 
     return (
         <section className="hero position-relative">
@@ -47,7 +63,7 @@ const SiteHeader = async ( {pageSlug}) => {
                         <div className="row align-items-center justify-content-center">
                             <div className="col-12 col-lg-8 text-center">
                                 {heroData.hero_data &&
-                                    <h1 className="text-white liten h2" dangerouslySetInnerHTML={{__html: heroData.hero_data.page_title}}></h1>
+                                    <h1 className="text-white liten h2" dangerouslySetInnerHTML={{__html: `${heroTitle}`}}></h1>
                                 }
                                 
                             </div>

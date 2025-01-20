@@ -154,12 +154,12 @@ export function parseHtml(html: string) {
         replace(domNode) {
             if ( domNode instanceof Element && domNode.attribs && domNode.name ) {
                 
-                const isInternalLink = domNode.name === "a";
-                const isImage = domNode.name === "img";
-                const isTable = domNode.name === "table";
-                const isCarousel =  domNode.name === "div" && domNode.attribs.id === 'carousel_testimonial';
-                const isAccordionButton = domNode.name === "button" && domNode.attribs.class.includes( 'accordion-button' );
-                const isAccordion = domNode.name === "div" && domNode.attribs.class === 'accordion';
+                const isInternalLink: boolean = domNode.name === "a";
+                const isImage: boolean = domNode.name === "img";
+                const isTable: boolean = domNode.name === "table";
+                const isCarousel: boolean =  domNode.name === "div" && domNode.attribs.id === 'carousel_testimonial';
+                const isAccordionButton: boolean = domNode.name === "button" && domNode.attribs.class.includes( 'accordion-button' );
+                const isAccordion: boolean = domNode.name === "div" && domNode.attribs.class === 'accordion';
 
                 // Replace CMS url to frontend url.
                 if ( isInternalLink ) return parseLink( domNode, options );
