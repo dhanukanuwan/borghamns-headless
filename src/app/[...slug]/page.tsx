@@ -2,6 +2,7 @@ import React from 'react';
 import { getDataFromAPI } from '../lib/api-functions';
 import { parseHtml } from '../lib/content-parser';
 import SiteHeader from '../ui/header/header';
+import ContactForm from '../ui/contact-form';
 
 export async function generateStaticParams() {
 	
@@ -43,6 +44,8 @@ export default async function Page( {params }) {
 			<main>
 				<div className="page-content-wrap">
 					{pageContent}
+
+					<ContactForm />
 				</div>
 			</main>
 		</div>

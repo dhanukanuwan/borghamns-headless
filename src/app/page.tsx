@@ -2,6 +2,7 @@ import React from 'react';
 import SiteHeader from './ui/header/header';
 import { getDataFromAPI } from './lib/api-functions';
 import { parseHtml } from './lib/content-parser';
+import ContactForm from './ui/contact-form';
 
 export default async function Page() {
 
@@ -18,6 +19,7 @@ export default async function Page() {
 		<main>
 			<div className="page-content-wrap">
 				{pageContent}
+				<ContactForm />
 			</div>
 		</main>
 	</div>

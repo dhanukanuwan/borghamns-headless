@@ -1,6 +1,6 @@
 import { MenuItem } from "./types";
 
-export const getDataFromAPI = async ( endpoint: string, args: any) => {
+export const getDataFromAPI = async ( endpoint: string, args: any, type?: string) => {
 
     let linkParams = '';
 
@@ -12,8 +12,24 @@ export const getDataFromAPI = async ( endpoint: string, args: any) => {
         }
     }
 
+    let apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}${endpoint}`;
+
+    if ( ! type || (type && type !== 'POST') ) {
+        apiUrl = `${apiUrl}${linkParams}`;
+    }
+
+    let apiParams = {}
+
+    if ( type && type === 'POST' ) {
+        apiParams = {
+            method: 'POST',
+            body: JSON.stringify(args),
+        }
+    }
+
     try {
-        const response = await fetch( `${process.env.WORDPRESS_API_URL}${endpoint}${linkParams}`);
+
+        const response = await fetch( apiUrl, apiParams );
         const apiResponse = await response.json();
 
         return apiResponse;

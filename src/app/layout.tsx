@@ -1,6 +1,7 @@
 import React from 'react';
 import './globals.scss'
 import { lora } from './fonts';
+import SiteFooter from './ui/footer';
 
 interface SEOMetadata {
 	title: string;
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
 		<html lang="en">
 			<body className={lora.variable}>
 				{children}
+				<SiteFooter />
 			</body>
 		</html>
 	)
