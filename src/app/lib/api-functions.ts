@@ -1,8 +1,8 @@
-import { MenuItem } from "./types";
+import { MenuItem, DynamicObjectType } from "./types";
 
-export const getDataFromAPI = async ( endpoint: string, args: any, type?: string) => {
+export const getDataFromAPI = async ( endpoint: string, args: DynamicObjectType, type?: string) => {
 
-    let linkParams = '';
+    let linkParams: string = '';
 
     if( args ) {
         linkParams = '/?';
@@ -12,13 +12,13 @@ export const getDataFromAPI = async ( endpoint: string, args: any, type?: string
         }
     }
 
-    let apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}${endpoint}`;
+    let apiUrl: string = `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}${endpoint}`;
 
     if ( ! type || (type && type !== 'POST') ) {
         apiUrl = `${apiUrl}${linkParams}`;
     }
 
-    let apiParams = {}
+    let apiParams: {[key: string]: string} = {}
 
     if ( type && type === 'POST' ) {
         apiParams = {
@@ -29,8 +29,8 @@ export const getDataFromAPI = async ( endpoint: string, args: any, type?: string
 
     try {
 
-        const response = await fetch( apiUrl, apiParams );
-        const apiResponse = await response.json();
+        const response: Response = await fetch( apiUrl, apiParams );
+        const apiResponse: DynamicObjectType = await response.json();
 
         return apiResponse;
         
@@ -47,7 +47,7 @@ export const getMainNavMenu = async () => {
         { menu_location: 'primary_navigation' }
     );
 
-    let organizedMenuItems = [];
+    let organizedMenuItems: MenuItem[] = [];
 
     if ( navMenuItems && navMenuItems.success ) {
 

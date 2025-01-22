@@ -5,7 +5,7 @@ import { MenuItem } from '@/app/lib/types';
 
 const MainNav = async () => {
 
-    const navMenuItems = await getMainNavMenu();
+    const navMenuItems: MenuItem[] = await getMainNavMenu();
 
     return(
         <nav className="navbar navbar-expand-xl">

@@ -11,14 +11,17 @@ export default async function Page() {
 		{ slug: 'hem' }
 	);
 
-	const pageContent = parseHtml(pageData[0].content.rendered);
+	//const pageContent = parseHtml(pageData[0].content.rendered);
+	const PageContent = (): React.ReactNode => {
+		return parseHtml(pageData[0].content.rendered);
+	}
 
   return (
     <div className="min-vh-100 d-flex flex-column">
 		<SiteHeader pageSlug={[]} />
 		<main>
 			<div className="page-content-wrap">
-				{pageContent}
+				<PageContent />
 				<ContactForm />
 			</div>
 		</main>

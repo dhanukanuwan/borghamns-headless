@@ -5,3 +5,7 @@ export type MenuItem = {
     title: string;
     url: string;
 }
+
+export type DynamicObjectType = {
+    [key: string]: string | number | string[]
+}

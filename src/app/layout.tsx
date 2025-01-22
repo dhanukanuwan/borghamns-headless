@@ -13,10 +13,10 @@ export const metadata: SEOMetadata = {
   description: 'Svensk natursten från våra egna brott',
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
 
 	return (
-		<html lang="en">
+		<html lang="sv-SE">
 			<body className={lora.variable}>
 				{children}
 				<SiteFooter />

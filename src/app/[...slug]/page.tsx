@@ -11,10 +11,10 @@ export async function generateStaticParams() {
 		{ menu_location: 'primary_navigation' }
 	);
 
-	const allPageUrls = allPages.menu_items.map((page: any) => {
+	const allPageUrls = allPages.menu_items.map((page: { [key: string]: string}) => {
 
-		const slugString = page.url.replace( process.env.WORDPRESS_CMS_URL , '').slice(0, -1);
-		const slugArray = slugString.split('/');
+		const slugString: string = page.url.replace( process.env.WORDPRESS_CMS_URL , '').slice(0, -1);
+		const slugArray: string[] = slugString.split('/');
 
 		return {
 			slug: slugArray
@@ -27,7 +27,7 @@ export async function generateStaticParams() {
 	return allPageUrls;
 }
 
-export default async function Page( {params }) {
+export default async function Page( {params}: { params: Promise<{ slug: string[] }>}) {
 
 	const {slug} = await params;
 
@@ -36,14 +36,16 @@ export default async function Page( {params }) {
 		{ slug: slug }
 	);
 
-	const pageContent = parseHtml(pageData[0].content.rendered);
+	const PageContent = (): React.ReactNode => {
+		return parseHtml(pageData[0].content.rendered);
+	}
 
 	return (
 		<div className="min-vh-100 d-flex flex-column">
 			<SiteHeader pageSlug={slug} />
 			<main>
 				<div className="page-content-wrap">
-					{pageContent}
+					<PageContent />
 
 					<ContactForm />
 				</div>

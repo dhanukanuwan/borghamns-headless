@@ -32,7 +32,7 @@ const ContactForm = () => {
 
         if ( ! id ) return;
 
-        let updatedData = {...userFormData, [id]: event.target.value };
+        const updatedData = {...userFormData, [id]: event.target.value };
 
         setUserFormData( updatedData );
 
