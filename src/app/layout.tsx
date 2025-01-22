@@ -2,6 +2,7 @@ import React from 'react';
 import './globals.scss'
 import { lora } from './fonts';
 import SiteFooter from './ui/footer';
+import SiteAccessibility from './ui/accessibility';
 
 interface SEOMetadata {
 	title: string;
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<body className={lora.variable}>
 				{children}
 				<SiteFooter />
+				<SiteAccessibility />
 			</body>
 		</html>
 	)

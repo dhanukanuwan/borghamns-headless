@@ -1,16 +1,21 @@
 'use client'
 
 import { useRouter } from "next/navigation";
-import { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, ChangeEvent, FormEvent, useRef, useEffect} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const SmallNav = () => {
     
     const router = useRouter()
+    const inputRef = useRef(null);
 
-    const [isSreachFormOpen, setIsSearchFormClose] = useState<boolean>( false );
+    const [isSreachFormOpen, setIsSearchFormOpen] = useState<boolean>( false );
     const [searchQ, setSearchQ] = useState<string>('');
+
+    useEffect(() => {
+        isSreachFormOpen && inputRef.current.focus();
+     }, [isSreachFormOpen]);
 
     const handleSearchInput = ( event: ChangeEvent<HTMLInputElement>) => {
         setSearchQ( event.target.value );
@@ -21,6 +26,13 @@ const SmallNav = () => {
 
         if ( searchQ ) return router.push(`/search-results/?search_q=${searchQ}`);
         if ( ! searchQ ) return router.push('/');
+
+    }
+
+    const handleInputDisplay = ( isOpen: boolean ) => {
+
+        setIsSearchFormOpen( isOpen );
+        
 
     }
 
@@ -52,18 +64,18 @@ const SmallNav = () => {
                                     <div id="search-wrap" className={`search-wrap ${isSreachFormOpen ? 'd-flex' : 'd-none'}`}>
                                         <form onSubmit={ ( event ) => handleSubmit( event ) }>
                                             <div className="input-group">
-                                                <input type="text" name="s" id="search_q" className="form-control rounded-start-pill text-size-medium bg-white border-0" value={searchQ} onChange={(e) => handleSearchInput( e )} style={{height: '45px'}} placeholder="Sök här..." aria-label="Sök här..." />
-                                                <button type="submit" className="btn p-0 bg-white rounded-end-pill pe-2" aria-label="Skicka sökfråga">
+                                                <input type="text" name="s" id="search_q" className="form-control rounded-start-pill text-size-medium bg-white border-0" ref={inputRef} value={searchQ} onChange={(e) => handleSearchInput( e )} style={{height: '45px'}} placeholder="Sök här..." aria-label="Sök här..." />
+                                                <button type="submit" className="btn p-0 bg-white rounded-end-pill pe-2 nav-link" aria-label="Skicka sökfråga">
                                                     <span className="icon-ion-android-search" style={{fontSize: '1.5rem'}}></span>
                                                 </button>
                                             </div>
                                             
                                         </form>
-                                        <button id="search-close" type="button" className="btn p-0 text-white" aria-label="Stäng sökformuläret" onClick={ () => setIsSearchFormClose( false ) }>
+                                        <button id="search-close" type="button" className="btn p-0 text-white nav-link" aria-label="Stäng sökformuläret" onClick={ () => handleInputDisplay( false ) }>
                                             <span className="icon-ion-android-close" style={{fontSize: '1.5rem'}}></span>
                                         </button>
                                     </div>
-                                    <button id="search-trigger" type="button" className={`btn p-0 text-white ${isSreachFormOpen ? 'd-none' : ''}`} aria-label="Öppna sökformuläret" onClick={ () => setIsSearchFormClose( true ) }>
+                                    <button id="search-trigger" type="button" className={`btn p-0 text-white nav-link ${isSreachFormOpen ? 'd-none' : ''}`} aria-label="Öppna sökformuläret" onClick={ () => handleInputDisplay( true ) }>
                                         <span className="icon-ion-android-search" style={{fontSize: '1.5rem'}}></span>
                                     </button>
                                 </div>

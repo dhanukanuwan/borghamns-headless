@@ -1,3 +1,40 @@
+body {
+    --_access-icon-border-radius: 50%;
+    --_access-icon-right: unset;
+    --_access-icon-left: 20px;
+    --_access-icon-bottom: 30px;
+    --_access-menu-right: unset;
+    --_access-menu-left: 0;
+    --_access-icon-bg: var(--bs-primary);
+    --_access-menu-item-button-background: var(--bs-primary);
+    --_access-menu-item-button-border-radius: 0;
+    --_access-menu-item-button-border: none;
+    --_access-menu-item-button-hover-background-color: var(--bs-dark-text);
+    --_access-menu-item-button-hover-color: #ffffff;
+    --_access-menu-border-radius: 0;
+
+    ._access-menu.close {
+        right: unset;
+    }
+
+    ._access-menu ul li button {
+        color: #ffffff;
+
+        &::before {
+            color: #ffffff;
+        }
+
+        &:hover{
+            &::before {
+                color: #ffffff;
+            }
+        }
+    }
+
+    ._access-menu ._menu-reset-btn {
+        color: var(--bs-dark-text);
+    }
+}
 
 .text-size-medium {
     font-size: 0.875rem;
@@ -38,9 +75,16 @@ h5 {
 
 @include media-breakpoint-up(md) {
 
-    .dropdown:hover>.dropdown-menu {
-        display: block;
-        top: 30px;
+    .dropdown {
+        &:hover,
+        &:focus,
+        &:focus-visible,
+        &:focus-within {
+            & > .dropdown-menu {
+                display: block;
+                top: 30px;
+            }
+        }
     }
     
     .dropdown>.dropdown-toggle:active {
@@ -72,6 +116,21 @@ h5 {
         .img-wrap-overlay {
             opacity: 1;
         }
+    }
+}
+
+.accordion-button{
+    &:focus{
+        background-color: $primary;
+        h3 {
+            color: $white;
+        }
+    }
+}
+
+.carousel-indicators {
+    button{
+        @extend .bg-dark-text
     }
 }
 
