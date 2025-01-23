@@ -13,7 +13,7 @@ export default async function Page() {
 
 	//const pageContent = parseHtml(pageData[0].content.rendered);
 	const PageContent = (): React.ReactNode => {
-		return parseHtml(pageData[0].content.rendered);
+		return pageData && pageData[0] ? parseHtml(pageData[0].content.rendered) : <></>;
 	}
 
   return (

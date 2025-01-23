@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
         silenceDeprecations: ['legacy-js-api'],
     },
     images: { unoptimized: true },
+    staticPageGenerationTimeout: 1000,
 }
 
 module.exports = nextConfig

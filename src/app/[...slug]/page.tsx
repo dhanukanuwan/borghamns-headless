@@ -11,7 +11,7 @@ export async function generateStaticParams() {
 		{ menu_location: 'primary_navigation' }
 	);
 
-	const allPageUrls = allPages.menu_items.map((page: { [key: string]: string}) => {
+	let allPageUrls = allPages.menu_items?.map((page: { [key: string]: string}) => {
 
 		const slugString: string = page.url.replace( process.env.WORDPRESS_CMS_URL , '').slice(0, -1);
 		const slugArray: string[] = slugString.split('/');
@@ -20,6 +20,8 @@ export async function generateStaticParams() {
 			slug: slugArray
 		}
 	});
+
+	if ( ! allPageUrls ) allPageUrls = [];
 
 	allPageUrls.push( { slug: ['offert']});
 	allPageUrls.push( { slug: ['stensorter', 'bestall-prover']});
@@ -37,7 +39,7 @@ export default async function Page( {params}: { params: Promise<{ slug: string[]
 	);
 
 	const PageContent = (): React.ReactNode => {
-		return parseHtml(pageData[0].content.rendered);
+		return pageData && pageData[0] ? parseHtml(pageData[0].content.rendered) : <></>;
 	}
 
 	return (
