@@ -9,3 +9,7 @@ export type MenuItem = {
 export type DynamicObjectType = {
     [key: string]: string | number | string[]
 }
+
+export type CacheTagsType = {
+    [key: string]: string | string[]
+}

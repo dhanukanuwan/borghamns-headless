@@ -1,6 +1,6 @@
-import { MenuItem, DynamicObjectType } from "./types";
+import { MenuItem, DynamicObjectType, CacheTagsType } from "./types";
 
-export const getDataFromAPI = async ( endpoint: string, args: DynamicObjectType, type?: string) => {
+export const getDataFromAPI = async ( endpoint: string, args: DynamicObjectType, type?: string, tags?: string[]) => {
 
     let linkParams: string = '';
 
@@ -18,13 +18,17 @@ export const getDataFromAPI = async ( endpoint: string, args: DynamicObjectType,
         apiUrl = `${apiUrl}${linkParams}`;
     }
 
-    let apiParams: {[key: string]: string} = {}
+    let apiParams: {[key: string]: string | CacheTagsType} = {}
 
     if ( type && type === 'POST' ) {
         apiParams = {
             method: 'POST',
             body: JSON.stringify(args),
         }
+    }
+
+    if ( tags ) {
+        apiParams.next = { tags: tags }
     }
 
     try {
@@ -44,7 +48,9 @@ export const getMainNavMenu = async () => {
 
     const navMenuItems = await getDataFromAPI(
         'nextheadless/v1/getmainnav',
-        { menu_location: 'primary_navigation' }
+        { menu_location: 'primary_navigation' },
+        'GET',
+        ['main_nav']
     );
 
     let organizedMenuItems: MenuItem[] = [];
