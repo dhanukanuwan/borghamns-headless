@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getMainNavMenu } from '@/app/lib/api-functions';
-import { MenuItem } from '@/app/lib/types';
+import { getMainNavMenu } from '../../lib/api-functions';
+import { MenuItem } from '../../lib/types';
 
 const MainNav = async () => {
 

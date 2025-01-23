@@ -31,8 +31,15 @@ const SiteAccessibility = () => {
     }
 
     useEffect(() => {
-        new Accessibility( options );
-    }, [options]);
+
+        const displayedElements = document.querySelectorAll( '_access-icon' );
+
+        if ( ! displayedElements || ( displayedElements && displayedElements.length === 0 ) ) {
+            new Accessibility( options );
+        }
+
+        
+    }, []);
 
     return( <></>);
 }

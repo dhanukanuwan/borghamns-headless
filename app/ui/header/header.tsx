@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import SmallNav from './small-nav';
 import MainNav from './main-nav';
-import { getDataFromAPI } from '@/app/lib/api-functions';
+import { getDataFromAPI } from '../../lib/api-functions';
 
 interface SiteHeaderProps {
     pageSlug: string[],
