@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getMainNavMenu } from '../../lib/api-functions';
 import { MenuItem } from '../../lib/types';
+import MobileNav from './mobile-nav';
 
 const MainNav = async () => {
 
@@ -78,7 +79,8 @@ const MainNav = async () => {
 					</ul>
 
 				</div>
-
+                
+                <MobileNav menuItems={navMenuItems} />
 			
 			</div>
 		</nav>
